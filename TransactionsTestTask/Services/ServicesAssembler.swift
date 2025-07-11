@@ -37,4 +37,10 @@ enum ServicesAssembler {
         
         return { service }
     }()
+
+    // MARK: - Storage
+    static let walletService: PerformOnce<WalletService> = {
+        let service = WalletServiceImpl()
+        return { service }
+    }()
 }

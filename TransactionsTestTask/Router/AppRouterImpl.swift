@@ -1,0 +1,37 @@
+//
+//  AppRouterImpl.swift
+//  TransactionsTestTask
+//
+//  Created by Stanislav Volskyi on 10.07.2025.
+//
+
+import UIKit
+
+final class AppRouterImpl: AppRouter {
+    private(set) var navigationController: UINavigationController
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func showDashboard() {
+        let walletService = ServicesAssembler.walletService()
+        let dashboardViewModel = DashboardViewModelImpl(router: self, walletService: walletService)
+        let dashboardViewController = DashboardViewController(viewModel: dashboardViewModel)
+        navigationController.viewControllers = [dashboardViewController]
+    }
+    
+    func showAddNewTransaction() {
+        let addTransactionViewModel = AddTransactionViewModel(router: self)
+        let addTransactionViewController = AddTransactionViewController(viewModel: addTransactionViewModel)
+        navigationController.pushViewController(addTransactionViewController, animated: true)
+    }
+    
+    func show(alert: UIAlertController) {
+        navigationController.present(alert, animated: true)
+    }
+
+    func goBack() {
+        navigationController.popViewController(animated: true)
+    }
+}

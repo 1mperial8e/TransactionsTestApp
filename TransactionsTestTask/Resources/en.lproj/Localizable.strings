@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  TransactionsTestTask
+
+  Created by Stanislav Volskyi on 11.07.2025.
+  
+*/
+
+// MARK: - Dashboard
+"dashboard.balance.title" = "Balance: %@ BTC";
+"dashboard.balance.refillButton" = "Refill";
+"dashboard.addTransactionButton" = "Add transaction";
+"dashboard.title" = "Dashboard";
+
+// MARK: - Transactions
+"transactions.addTransaction.title" = "New transaction";
+
+// MARK: - Refill balance
+"refillBalance.title" = "Refill your balance";
+"refillBalance.message" = "Please enter an amount you would like to refill:";
+
+// MARK: - Common
+"common.error.generic.title" = "Error";
+"common.error.generic.message" = "An unknown error occured. Please try again.";
+"common.ok" = "Ok";
+"common.done" = "Done";
+"common.cancel" = "Cancel";

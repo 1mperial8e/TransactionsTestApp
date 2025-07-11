@@ -14,12 +14,27 @@
 		0DF1D1472D22DD4A001626E7 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1D1462D22DD44001626E7 /* AnalyticsService.swift */; };
 		1CA3B6562D22B0F500176711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B6552D22B0F500176711 /* AppDelegate.swift */; };
 		1CA3B6582D22B0F500176711 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B6572D22B0F500176711 /* SceneDelegate.swift */; };
-		1CA3B65A2D22B0F500176711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B6592D22B0F500176711 /* ViewController.swift */; };
-		1CA3B65D2D22B0F500176711 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B65C2D22B0F500176711 /* Base */; };
+		1CA3B65A2D22B0F500176711 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B6592D22B0F500176711 /* DashboardViewController.swift */; };
 		1CA3B6602D22B0F500176711 /* TransactionsTestTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B65E2D22B0F500176711 /* TransactionsTestTask.xcdatamodeld */; };
 		1CA3B6622D22B0F600176711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6612D22B0F600176711 /* Assets.xcassets */; };
 		1CA3B6652D22B0F600176711 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3B6642D22B0F600176711 /* Base */; };
 		1CA3B6702D22B0F600176711 /* TransactionsTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */; };
+		7C4D0E402E2048C2008F143D /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E3F2E2048BE008F143D /* DashboardViewModel.swift */; };
+		7C4D0E422E204C7E008F143D /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E412E204C7B008F143D /* AppRouter.swift */; };
+		7C4D0E452E204CDA008F143D /* AppRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E442E204CD0008F143D /* AppRouterImpl.swift */; };
+		7C4D0E4A2E20502E008F143D /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E492E205024008F143D /* AddTransactionViewController.swift */; };
+		7C4D0E4C2E20503C008F143D /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E4B2E205036008F143D /* AddTransactionViewModel.swift */; };
+		7C4D0E522E20F8B0008F143D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C4D0E502E20F8B0008F143D /* Localizable.strings */; };
+		7C4D0E552E20FAEE008F143D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E542E20FAEE008F143D /* Strings.swift */; };
+		7C4D0E7C2E2135DB008F143D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E7B2E2135D5008F143D /* Transaction.swift */; };
+		7C4D0E7E2E2136E6008F143D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E7D2E2136E4008F143D /* Wallet.swift */; };
+		7C4D0E812E214038008F143D /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E802E214036008F143D /* DataStorage.swift */; };
+		7C4D0E832E214189008F143D /* WalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E822E214181008F143D /* WalletStorage.swift */; };
+		7C4D0E862E214D98008F143D /* RefillAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E852E214D97008F143D /* RefillAlert.swift */; };
+		7C4D0E882E2155E4008F143D /* GenericErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E872E2155DE008F143D /* GenericErrorAlert.swift */; };
+		7C4D0E8A2E21621A008F143D /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E892E216219008F143D /* DecimalFormatter.swift */; };
+		7C4D0E8C2E21622F008F143D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E8B2E216228008F143D /* String+Extension.swift */; };
+		7C4D0E8E2E21624A008F143D /* Decimal+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0E8D2E216245008F143D /* Decimal+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +63,7 @@
 		1CA3B6522D22B0F500176711 /* TransactionsTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionsTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA3B6552D22B0F500176711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CA3B6572D22B0F500176711 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1CA3B6592D22B0F500176711 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1CA3B65C2D22B0F500176711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CA3B6592D22B0F500176711 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		1CA3B65F2D22B0F500176711 /* TransactionsTestTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TransactionsTestTask.xcdatamodel; sourceTree = "<group>"; };
 		1CA3B6612D22B0F600176711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CA3B6642D22B0F600176711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +71,22 @@
 		1CA3B66B2D22B0F600176711 /* TransactionsTestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTestTaskTests.swift; sourceTree = "<group>"; };
 		1CA3B6752D22B0F600176711 /* TransactionsTestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C4D0E3F2E2048BE008F143D /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		7C4D0E412E204C7B008F143D /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		7C4D0E442E204CD0008F143D /* AppRouterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterImpl.swift; sourceTree = "<group>"; };
+		7C4D0E492E205024008F143D /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		7C4D0E4B2E205036008F143D /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		7C4D0E512E20F8B0008F143D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7C4D0E542E20FAEE008F143D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		7C4D0E7B2E2135D5008F143D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		7C4D0E7D2E2136E4008F143D /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		7C4D0E802E214036008F143D /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		7C4D0E822E214181008F143D /* WalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStorage.swift; sourceTree = "<group>"; };
+		7C4D0E852E214D97008F143D /* RefillAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefillAlert.swift; sourceTree = "<group>"; };
+		7C4D0E872E2155DE008F143D /* GenericErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorAlert.swift; sourceTree = "<group>"; };
+		7C4D0E892E216219008F143D /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
+		7C4D0E8B2E216228008F143D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7C4D0E8D2E216245008F143D /* Decimal+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +126,7 @@
 		0DF1D13E2D22DC2D001626E7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0DF1D1412D22DCC3001626E7 /* Helpers */,
+				7C4D0E7F2E21401E008F143D /* Storage */,
 				0DF1D13F2D22DC4B001626E7 /* ServicesAssembler.swift */,
 				0DF1D1442D22DCFF001626E7 /* BitcoinRateService.swift */,
 				0D15405F2D22EF3400D6D63F /* AnalyticsService */,
@@ -108,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF1D1422D22DCD2001626E7 /* PerformOnce.swift */,
+				7C4D0E892E216219008F143D /* DecimalFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -134,13 +165,16 @@
 		1CA3B6542D22B0F500176711 /* TransactionsTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				0DF1D13E2D22DC2D001626E7 /* Services */,
+				7C4D0E622E213275008F143D /* CoreDataModels */,
+				7C4D0E532E20F9E3008F143D /* Generated */,
 				1CA3B6552D22B0F500176711 /* AppDelegate.swift */,
 				1CA3B6572D22B0F500176711 /* SceneDelegate.swift */,
-				1CA3B6592D22B0F500176711 /* ViewController.swift */,
-				1CA3B65B2D22B0F500176711 /* Main.storyboard */,
-				1CA3B6612D22B0F600176711 /* Assets.xcassets */,
-				1CA3B6632D22B0F600176711 /* LaunchScreen.storyboard */,
+				7C4D0E4D2E20F577008F143D /* Extensions */,
+				0DF1D1412D22DCC3001626E7 /* Helpers */,
+				7C4D0E432E204C83008F143D /* Router */,
+				0DF1D13E2D22DC2D001626E7 /* Services */,
+				7C4D0E3D2E203E90008F143D /* Views */,
+				7C4D0E3C2E203E55008F143D /* Resources */,
 				1CA3B6662D22B0F600176711 /* Info.plist */,
 				1CA3B65E2D22B0F500176711 /* TransactionsTestTask.xcdatamodeld */,
 			);
@@ -153,6 +187,97 @@
 				1CA3B66F2D22B0F600176711 /* TransactionsTestTaskTests.swift */,
 			);
 			path = TransactionsTestTaskTests;
+			sourceTree = "<group>";
+		};
+		7C4D0E3C2E203E55008F143D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3B6612D22B0F600176711 /* Assets.xcassets */,
+				1CA3B6632D22B0F600176711 /* LaunchScreen.storyboard */,
+				7C4D0E502E20F8B0008F143D /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C4D0E3D2E203E90008F143D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E842E214D85008F143D /* Alerts */,
+				7C4D0E482E205013008F143D /* AddTransaction */,
+				7C4D0E3E2E203E9E008F143D /* Dashboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7C4D0E3E2E203E9E008F143D /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3B6592D22B0F500176711 /* DashboardViewController.swift */,
+				7C4D0E3F2E2048BE008F143D /* DashboardViewModel.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		7C4D0E432E204C83008F143D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E412E204C7B008F143D /* AppRouter.swift */,
+				7C4D0E442E204CD0008F143D /* AppRouterImpl.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		7C4D0E482E205013008F143D /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E492E205024008F143D /* AddTransactionViewController.swift */,
+				7C4D0E4B2E205036008F143D /* AddTransactionViewModel.swift */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		7C4D0E4D2E20F577008F143D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E8B2E216228008F143D /* String+Extension.swift */,
+				7C4D0E8D2E216245008F143D /* Decimal+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7C4D0E532E20F9E3008F143D /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E542E20FAEE008F143D /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		7C4D0E622E213275008F143D /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E7B2E2135D5008F143D /* Transaction.swift */,
+				7C4D0E7D2E2136E4008F143D /* Wallet.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		7C4D0E7F2E21401E008F143D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E802E214036008F143D /* DataStorage.swift */,
+				7C4D0E822E214181008F143D /* WalletStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		7C4D0E842E214D85008F143D /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E852E214D97008F143D /* RefillAlert.swift */,
+				7C4D0E872E2155DE008F143D /* GenericErrorAlert.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CA3B6622D22B0F600176711 /* Assets.xcassets in Resources */,
+				7C4D0E522E20F8B0008F143D /* Localizable.strings in Resources */,
 				1CA3B6652D22B0F600176711 /* Base in Resources */,
-				1CA3B65D2D22B0F500176711 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,13 +412,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D1540612D22EF5D00D6D63F /* AnalyticsEvent.swift in Sources */,
+				7C4D0E402E2048C2008F143D /* DashboardViewModel.swift in Sources */,
+				7C4D0E7C2E2135DB008F143D /* Transaction.swift in Sources */,
+				7C4D0E452E204CDA008F143D /* AppRouterImpl.swift in Sources */,
 				0DF1D1432D22DCD8001626E7 /* PerformOnce.swift in Sources */,
+				7C4D0E4A2E20502E008F143D /* AddTransactionViewController.swift in Sources */,
 				0DF1D1452D22DD06001626E7 /* BitcoinRateService.swift in Sources */,
 				0DF1D1472D22DD4A001626E7 /* AnalyticsService.swift in Sources */,
-				1CA3B65A2D22B0F500176711 /* ViewController.swift in Sources */,
+				7C4D0E8A2E21621A008F143D /* DecimalFormatter.swift in Sources */,
+				7C4D0E862E214D98008F143D /* RefillAlert.swift in Sources */,
+				7C4D0E552E20FAEE008F143D /* Strings.swift in Sources */,
+				1CA3B65A2D22B0F500176711 /* DashboardViewController.swift in Sources */,
+				7C4D0E8C2E21622F008F143D /* String+Extension.swift in Sources */,
+				7C4D0E882E2155E4008F143D /* GenericErrorAlert.swift in Sources */,
 				1CA3B6562D22B0F500176711 /* AppDelegate.swift in Sources */,
+				7C4D0E4C2E20503C008F143D /* AddTransactionViewModel.swift in Sources */,
+				7C4D0E812E214038008F143D /* DataStorage.swift in Sources */,
+				7C4D0E8E2E21624A008F143D /* Decimal+Extension.swift in Sources */,
+				7C4D0E422E204C7E008F143D /* AppRouter.swift in Sources */,
 				1CA3B6582D22B0F500176711 /* SceneDelegate.swift in Sources */,
 				1CA3B6602D22B0F500176711 /* TransactionsTestTask.xcdatamodeld in Sources */,
+				7C4D0E7E2E2136E6008F143D /* Wallet.swift in Sources */,
+				7C4D0E832E214189008F143D /* WalletStorage.swift in Sources */,
 				0DF1D1402D22DC51001626E7 /* ServicesAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,20 +469,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1CA3B65B2D22B0F500176711 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CA3B65C2D22B0F500176711 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1CA3B6632D22B0F600176711 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1CA3B6642D22B0F600176711 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7C4D0E502E20F8B0008F143D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C4D0E512E20F8B0008F143D /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -407,6 +547,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -463,6 +604,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -476,11 +618,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TransactionsTestTask/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,9 +632,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.obrio.TransactionsTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -503,11 +651,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TransactionsTestTask/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,9 +665,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.obrio.TransactionsTestTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
