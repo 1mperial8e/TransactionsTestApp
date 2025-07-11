@@ -42,6 +42,12 @@ internal enum L10n {
         return L10n.tr("Localizable", "dashboard.balance.title", String(describing: p1), fallback: "Balance: %@ BTC")
       }
     }
+    internal enum Rate {
+      /// 1 BTC = %@ USD
+      internal static func btcUsd(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "dashboard.rate.btcUsd", String(describing: p1), fallback: "1 BTC = %@ USD")
+      }
+    }
   }
   internal enum RefillBalance {
     /// Please enter an amount you would like to refill:

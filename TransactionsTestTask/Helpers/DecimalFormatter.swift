@@ -12,8 +12,6 @@ enum DecimalFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.locale = .current
-        formatter.minimumFractionDigits = 5
-        formatter.maximumFractionDigits = 5
         return formatter
     }()
 }

@@ -16,7 +16,8 @@ final class AppRouterImpl: AppRouter {
 
     func showDashboard() {
         let walletService = ServicesAssembler.walletService()
-        let dashboardViewModel = DashboardViewModelImpl(router: self, walletService: walletService)
+        let bitcoinService = ServicesAssembler.bitcoinRateService()
+        let dashboardViewModel = DashboardViewModelImpl(router: self, walletService: walletService, bitcoinRateService: bitcoinService)
         let dashboardViewController = DashboardViewController(viewModel: dashboardViewModel)
         navigationController.viewControllers = [dashboardViewController]
     }

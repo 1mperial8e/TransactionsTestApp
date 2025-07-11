@@ -44,8 +44,21 @@ class DashboardViewController: UIViewController {
         )
         output
             .balance
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.balanceLabel.text = L10n.Dashboard.Balance.title(value.formatted())
+            }
+            .store(in: &cancellables)
+        output
+            .rate
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                guard let self else { return }
+                if let value, let formatted = value.formatted(fractions: 2) {
+                    rateLabel.text = L10n.Dashboard.Rate.btcUsd(formatted)
+                } else {
+                    rateLabel.text = nil
+                }
             }
             .store(in: &cancellables)
     }
@@ -61,6 +74,10 @@ class DashboardViewController: UIViewController {
         addTransactionButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         stackView.addArrangedSubview(balanceStackView)
         stackView.addArrangedSubview(addTransactionButton)
+
+        rateLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        rateLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
+        navigationItem.rightBarButtonItem = .init(customView: rateLabel)
     }
 
     // MARK: - UI Components
@@ -106,5 +123,12 @@ class DashboardViewController: UIViewController {
         }), for: .touchUpInside)
         button.setTitle(L10n.Dashboard.addTransactionButton, for: .normal)
         return button
+    }()
+
+    private lazy var rateLabel:  UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .footnote)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 }

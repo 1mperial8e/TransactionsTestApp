@@ -10,6 +10,7 @@ import Foundation
 protocol WalletService {
     func getWallet() throws -> Wallet
     func refillWallet(_ amount: Decimal) throws
+    func updateLatestRate(_ rate: Decimal) throws
 }
 
 final class WalletServiceImpl: WalletService {
@@ -29,6 +30,12 @@ final class WalletServiceImpl: WalletService {
         let wallet = try getWallet()
         let updatedBalance = wallet.balanceValue + amount
         wallet.balance = NSDecimalNumber(decimal: updatedBalance)
+        try storage.save()
+    }
+
+    func updateLatestRate(_ rate: Decimal) throws {
+        let wallet = try getWallet()
+        wallet.btcUsdRate = NSDecimalNumber(decimal: rate)
         try storage.save()
     }
 }

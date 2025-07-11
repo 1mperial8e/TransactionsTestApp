@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol DashboardViewModel {
-    init(router: AppRouter, walletService: WalletService)
+    init(router: AppRouter, walletService: WalletService, bitcoinRateService: BitcoinRateService)
     func bind(input: DashboardViewModelInput) -> DashboardViewModelOutput
 }
 
@@ -21,20 +21,23 @@ struct DashboardViewModelInput {
 
 struct DashboardViewModelOutput {
     var balance: AnyPublisher<Decimal, Never>
+    var rate: AnyPublisher<Decimal?, Never>
 }
 
 final class DashboardViewModelImpl: DashboardViewModel {
     private let router: AppRouter
     private let walletService: WalletService
-    private var wallet: Wallet
+    private let bitcoinRateService: BitcoinRateService
 
+    private var wallet: Wallet
     private let balancePublisher: CurrentValueSubject<Decimal, Never>
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: Init
-    init(router: AppRouter, walletService: WalletService) {
+    init(router: AppRouter, walletService: WalletService, bitcoinRateService: BitcoinRateService) {
         self.router = router
         self.walletService = walletService
+        self.bitcoinRateService = bitcoinRateService
         do {
             self.wallet = try walletService.getWallet()
             self.balancePublisher = .init(wallet.balanceValue)
@@ -84,6 +87,9 @@ extension DashboardViewModelImpl {
             }
             .store(in: &cancellables)
 
-        return .init(balance: balancePublisher.eraseToAnyPublisher())
+        return .init(
+            balance: balancePublisher.eraseToAnyPublisher(),
+            rate: bitcoinRateService.currentRatePublisher.eraseToAnyPublisher()
+        )
     }
 }

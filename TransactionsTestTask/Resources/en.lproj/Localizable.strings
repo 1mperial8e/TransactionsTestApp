@@ -11,6 +11,7 @@
 "dashboard.balance.refillButton" = "Refill";
 "dashboard.addTransactionButton" = "Add transaction";
 "dashboard.title" = "Dashboard";
+"dashboard.rate.btcUsd" = "1 BTC = %@ USD";
 
 // MARK: - Transactions
 "transactions.addTransaction.title" = "New transaction";
