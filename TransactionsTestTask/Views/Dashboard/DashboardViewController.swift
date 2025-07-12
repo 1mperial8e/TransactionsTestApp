@@ -54,7 +54,7 @@ class DashboardViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 guard let self else { return }
-                if let value, let formatted = value.formatted(fractions: 2) {
+                if let value, value > 0, let formatted = value.formatted(fractions: 2) {
                     rateLabel.text = L10n.Dashboard.Rate.btcUsd(formatted)
                 } else {
                     rateLabel.text = nil

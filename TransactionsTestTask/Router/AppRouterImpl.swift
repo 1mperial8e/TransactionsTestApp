@@ -16,14 +16,26 @@ final class AppRouterImpl: AppRouter {
 
     func showDashboard() {
         let walletService = ServicesAssembler.walletService()
+        let transactionService = ServicesAssembler.transactionsService()
         let bitcoinService = ServicesAssembler.bitcoinRateService()
-        let dashboardViewModel = DashboardViewModelImpl(router: self, walletService: walletService, bitcoinRateService: bitcoinService)
+        let dashboardViewModel = DashboardViewModelImpl(
+            router: self,
+            walletService: walletService,
+            transactionsService: transactionService,
+            bitcoinRateService: bitcoinService
+        )
         let dashboardViewController = DashboardViewController(viewModel: dashboardViewModel)
         navigationController.viewControllers = [dashboardViewController]
     }
     
     func showAddNewTransaction() {
-        let addTransactionViewModel = AddTransactionViewModel(router: self)
+        let transactionService = ServicesAssembler.transactionsService()
+        let walletService = ServicesAssembler.walletService()
+        let addTransactionViewModel = AddTransactionViewModelImpl(
+            router: self,
+            transactionService: transactionService,
+            walletService: walletService
+        )
         let addTransactionViewController = AddTransactionViewController(viewModel: addTransactionViewModel)
         navigationController.pushViewController(addTransactionViewController, animated: true)
     }

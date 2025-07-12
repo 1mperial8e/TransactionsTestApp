@@ -1,5 +1,5 @@
 //
-//  WalletStorage.swift
+//  WalletService.swift
 //  TransactionsTestTask
 //
 //  Created by Stanislav Volskyi on 11.07.2025.

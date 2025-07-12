@@ -23,7 +23,7 @@ enum ServicesAssembler {
             analyticsService: Self.analyticsService()
         )
         // Scheduling automatic rate updates every 5 seconds while app is active
-        service.scheduleRateUpdate(interval: 5)
+//        service.scheduleRateUpdate(interval: 5)
 
         return { service }
     }()
@@ -39,4 +39,10 @@ enum ServicesAssembler {
         let service = WalletServiceImpl()
         return { service }
     }()
+
+    static let transactionsService: PerformOnce<TransactionsService> = {
+        let service = TransactionsServiceImpl()
+        return { service }
+    }()
+
 }

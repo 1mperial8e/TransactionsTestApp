@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol DashboardViewModel {
-    init(router: AppRouter, walletService: WalletService, bitcoinRateService: BitcoinRateService)
+    init(router: AppRouter, walletService: WalletService, transactionsService: TransactionsService, bitcoinRateService: BitcoinRateService)
     func bind(input: DashboardViewModelInput) -> DashboardViewModelOutput
 }
 
@@ -27,6 +27,7 @@ struct DashboardViewModelOutput {
 final class DashboardViewModelImpl: DashboardViewModel {
     private let router: AppRouter
     private let walletService: WalletService
+    private let transactionsService: TransactionsService
     private let bitcoinRateService: BitcoinRateService
 
     private var wallet: Wallet
@@ -34,9 +35,15 @@ final class DashboardViewModelImpl: DashboardViewModel {
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: Init
-    init(router: AppRouter, walletService: WalletService, bitcoinRateService: BitcoinRateService) {
+    init(
+        router: AppRouter,
+        walletService: WalletService,
+        transactionsService: TransactionsService,
+        bitcoinRateService: BitcoinRateService
+    ) {
         self.router = router
         self.walletService = walletService
+        self.transactionsService = transactionsService
         self.bitcoinRateService = bitcoinRateService
         do {
             self.wallet = try walletService.getWallet()
@@ -61,6 +68,7 @@ final class DashboardViewModelImpl: DashboardViewModel {
         guard let amount = value.decimal, amount > 0 else { return }
         do {
             try walletService.refillWallet(amount)
+            try transactionsService.addDebitTransaction(amount: amount)
             balancePublisher.send(wallet.balanceValue)
         } catch {
             router.show(alert: GenericErrorAlert.build())
@@ -75,15 +83,15 @@ extension DashboardViewModelImpl {
         input
             .refillTapped
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] _ in
-                self.handleRefillAction()
+            .sink { [weak self] _ in
+                self?.handleRefillAction()
             }
             .store(in: &cancellables)
         input
             .addTransactionTapped
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] _ in
-                self.handleAddTransactionAction()
+            .sink { [weak self] _ in
+                self?.handleAddTransactionAction()
             }
             .store(in: &cancellables)
 

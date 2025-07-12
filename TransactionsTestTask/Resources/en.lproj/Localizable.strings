@@ -15,6 +15,18 @@
 
 // MARK: - Transactions
 "transactions.addTransaction.title" = "New transaction";
+"transactions.category.groceries" = "Groceries";
+"transactions.category.taxi" = "Taxi";
+"transactions.category.electronics" = "Electronics";
+"transactions.category.restaurant" = "Restaurant";
+"transactions.category.other" = "Other";
+"transactions.btc.code" = "BTC";
+"transactions.selectCategory" = "Select category:";
+"transactions.error.emptyFields.title" = "Fields required";
+"transactions.error.emptyFields.message" = "Please enter amount and select category.";
+"transactions.error.insufficientBalance.title" = "Insufficient balance";
+"transactions.error.insufficientBalance.message" = "Please refill your balance.";
+"transactions.reference.placeholder" = "Description";
 
 // MARK: - Refill balance
 "refillBalance.title" = "Refill your balance";

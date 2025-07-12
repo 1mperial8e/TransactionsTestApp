@@ -20,19 +20,7 @@ protocol DataStorage {
 class DataStorageImpl<T: NSManagedObject>: DataStorage {
     typealias Entity = T
     var context: NSManagedObjectContext {
-        return persistentContainer.viewContext
-    }
-
-    private let persistentContainer: NSPersistentContainer
-    private let modelName = "TransactionsTestTask"
-
-    init() {
-        persistentContainer = NSPersistentContainer(name: modelName)
-        persistentContainer.loadPersistentStores { storeDescription, error in
-            if let error = error {
-                fatalError("Failed to load store: \(error)")
-            }
-        }
+        return CoreDataContainer.appContainer.viewContext
     }
 
     func save() throws {
