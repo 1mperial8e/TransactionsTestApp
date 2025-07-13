@@ -29,6 +29,7 @@ final class AddTransactionViewModelImpl: AddTransactionViewModel {
     private let transactionService: TransactionsService
     private let walletService: WalletService
     @Published private var transactionModel: AddTransactionModel = .init()
+    private let analyticsService: AnalyticsService = ServicesAssembler.analyticsService()
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -68,7 +69,13 @@ final class AddTransactionViewModelImpl: AddTransactionViewModel {
     }
 
     private func handleAddTransaction() {
-        guard let amount = transactionModel.amount, let category = transactionModel.category else {
+        guard let amount = transactionModel.amount else {
+            logInvalidInput("amount")
+            router.show(alert: EmptyTransactionFieldsAlert.build())
+            return
+        }
+        guard let category = transactionModel.category else {
+            logInvalidInput("category")
             router.show(alert: EmptyTransactionFieldsAlert.build())
             return
         }
@@ -86,5 +93,14 @@ final class AddTransactionViewModelImpl: AddTransactionViewModel {
             router.show(alert: GenericErrorAlert.build())
         }
     }
+}
 
+// MARK: - Analytics
+private extension AddTransactionViewModelImpl {
+    func logInvalidInput(_ inputName: String) {
+        analyticsService.trackEvent(
+            name: AnalyticsEventName.invalidInputData,
+            parameters: [AnalyticsParameterName.invalidInputName: inputName]
+        )
+    }
 }

@@ -29,15 +29,14 @@ final class BitcoinRateServiceImpl {
 
     private let networkClient: NetworkClient
     private let walletService: WalletService
-    private let analyticsService: AnalyticsService
+    private let analyticsService: AnalyticsService = ServicesAssembler.analyticsService()
 
     private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - Init
-    init(networkClient: NetworkClient, walletService: WalletService, analyticsService: AnalyticsService) {
+    init(networkClient: NetworkClient, walletService: WalletService) {
         self.networkClient = networkClient
         self.walletService = walletService
-        self.analyticsService = analyticsService
         self.currentRate = try? walletService.getWallet().btcUsdRate?.decimalValue
     }
 }
@@ -75,8 +74,8 @@ extension BitcoinRateServiceImpl: BitcoinRateService {
 private extension BitcoinRateServiceImpl {
     func logNewRate(_ value: Decimal) {
         analyticsService.trackEvent(
-            name: "bitcoin_rate_update",
-            parameters: ["rate": value.formatted()]
+            name: AnalyticsEventName.bitcoinRateUpdate,
+            parameters: [AnalyticsParameterName.rate: value.formatted()]
         )
     }
 }

@@ -12,19 +12,13 @@ import Foundation
 /// The minimal needed filters are: event name and date range
 /// The service should be covered by unit tests
 protocol AnalyticsService: AnyObject {
-    
     func trackEvent(name: String, parameters: [String: String])
+    func getEvents(from startDate: Date?, to endDate: Date?, eventName: String?) -> [AnalyticsEvent]
 }
 
 final class AnalyticsServiceImpl {
     
     private var events: [AnalyticsEvent] = []
-    
-    // MARK: - Init
-    
-    init() {
-        
-    }
 }
 
 extension AnalyticsServiceImpl: AnalyticsService {
@@ -38,4 +32,22 @@ extension AnalyticsServiceImpl: AnalyticsService {
         
         events.append(event)
     }
+
+    func getEvents(from startDate: Date? = nil, to endDate: Date? = nil, eventName: String? = nil) -> [AnalyticsEvent] {
+        return events
+            .filter {
+                var result = true
+                if let startDate = startDate {
+                    result = result && $0.date >= startDate
+                }
+                if let endDate = endDate {
+                    result = result && $0.date <= endDate
+                }
+                if let eventName = eventName {
+                    result = result && $0.name == eventName
+                }
+                return result
+            }
+    }
+
 }

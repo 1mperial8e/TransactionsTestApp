@@ -19,8 +19,7 @@ enum ServicesAssembler {
         
         let service = BitcoinRateServiceImpl(
             networkClient: NetworkClientImpl(),
-            walletService: Self.walletService(),
-            analyticsService: Self.analyticsService()
+            walletService: Self.walletService()
         )
         // Scheduling automatic rate updates every 2 min while app is active
         service.scheduleRateUpdate(interval: 120)

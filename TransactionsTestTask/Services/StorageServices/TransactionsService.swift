@@ -21,6 +21,7 @@ final class TransactionsServiceImpl: TransactionsService {
     private var transactionsChanged = PassthroughSubject<Void, Never>()
 
     private let storage = DataStorageImpl<Transaction>()
+    private let analyticsService: AnalyticsService = ServicesAssembler.analyticsService()
 
     func getTransactions(page: Int, size: Int) throws -> [Transaction] {
         try storage.fetch(
@@ -58,4 +59,19 @@ final class TransactionsServiceImpl: TransactionsService {
         return newTransaction
     }
 
+}
+
+// MARK: - Analytics
+private extension TransactionsServiceImpl {
+    func logNewTransaction(_ transaction: Transaction) {
+        let parameters: [String: String?] = [
+            AnalyticsParameterName.category: transaction.categoryValue,
+            AnalyticsParameterName.transactionDate: transaction.date.ISO8601Format(),
+            AnalyticsParameterName.hasReference: transaction.reference == nil ? "false" : "true"
+        ]
+        analyticsService.trackEvent(
+            name: AnalyticsEventName.newTransaction,
+            parameters: parameters.compactMapValues { $0 }
+        )
+    }
 }

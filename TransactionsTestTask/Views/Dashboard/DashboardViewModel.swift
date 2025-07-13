@@ -30,6 +30,7 @@ final class DashboardViewModelImpl: DashboardViewModel {
     private let walletService: WalletService
     private let transactionsService: TransactionsService
     private let bitcoinRateService: BitcoinRateService
+    private let analyticsService: AnalyticsService = ServicesAssembler.analyticsService()
 
     private var wallet: Wallet
     private var cancellables: Set<AnyCancellable> = []
@@ -73,6 +74,7 @@ final class DashboardViewModelImpl: DashboardViewModel {
             router.show(alert: InvalidAmountAlert.build() { [weak self] in
                 self?.handleRefillAction()
             })
+            logInvalidAmountInput()
             return
         }
         do {
@@ -107,6 +109,16 @@ extension DashboardViewModelImpl {
             balance: walletService.balancePublisher.eraseToAnyPublisher(),
             rate: bitcoinRateService.currentRatePublisher.eraseToAnyPublisher(),
             transactionsViewModel: Just(transactionsListViewModel).eraseToAnyPublisher()
+        )
+    }
+}
+
+// MARK: - Analytics
+private extension DashboardViewModelImpl {
+    func logInvalidAmountInput() {
+        analyticsService.trackEvent(
+            name: AnalyticsEventName.invalidInputData,
+            parameters: [AnalyticsParameterName.invalidInputName: "amount"]
         )
     }
 }
