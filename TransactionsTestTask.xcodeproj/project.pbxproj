@@ -191,7 +191,9 @@
 				0D15405F2D22EF3400D6D63F /* AnalyticsService */,
 				7C4D0E982E216EE1008F143D /* BitcoinRateService */,
 				7C4D0E912E216E81008F143D /* NetworkClient */,
-				7C4D0E7F2E21401E008F143D /* StorageServices */,
+				7C4D0E7F2E21401E008F143D /* DataStorage */,
+				7C4D0EE42E244119008F143D /* WalletService */,
+				7C4D0EE52E244128008F143D /* TransactionsService */,
 				0DF1D13F2D22DC4B001626E7 /* ServicesAssembler.swift */,
 			);
 			path = Services;
@@ -236,7 +238,6 @@
 				7C4D0ECA2E23CABF008F143D /* DesignSystem */,
 				0DF1D1412D22DCC3001626E7 /* Helpers */,
 				7C4D0E432E204C83008F143D /* Router */,
-				7C4D0E622E213275008F143D /* Model */,
 				0DF1D13E2D22DC2D001626E7 /* Services */,
 				7C4D0E3D2E203E90008F143D /* Views */,
 				7C4D0EC42E23BA0F008F143D /* UIComponents */,
@@ -326,23 +327,18 @@
 		7C4D0E622E213275008F143D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C4D0EA32E21AA82008F143D /* CreditDebitIndicator.swift */,
-				7C4D0E7B2E2135D5008F143D /* Transaction.swift */,
-				7C4D0EA12E21A85B008F143D /* TransactionCategory.swift */,
 				7C4D0E7D2E2136E4008F143D /* Wallet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7C4D0E7F2E21401E008F143D /* StorageServices */ = {
+		7C4D0E7F2E21401E008F143D /* DataStorage */ = {
 			isa = PBXGroup;
 			children = (
 				7C4D0EAA2E22585F008F143D /* CoreDataContainer.swift */,
 				7C4D0E802E214036008F143D /* DataStorage.swift */,
-				7C4D0E9E2E21A7B2008F143D /* TransactionsService.swift */,
-				7C4D0E822E214181008F143D /* WalletService.swift */,
 			);
-			path = StorageServices;
+			path = DataStorage;
 			sourceTree = "<group>";
 		};
 		7C4D0E842E214D85008F143D /* Alerts */ = {
@@ -496,6 +492,34 @@
 				7C4D0EE22E240B8B008F143D /* WalletServiceStub.swift */,
 			);
 			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		7C4D0EE42E244119008F143D /* WalletService */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E622E213275008F143D /* Model */,
+				7C4D0E822E214181008F143D /* WalletService.swift */,
+			);
+			path = WalletService;
+			sourceTree = "<group>";
+		};
+		7C4D0EE52E244128008F143D /* TransactionsService */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EE62E244134008F143D /* Model */,
+				7C4D0E9E2E21A7B2008F143D /* TransactionsService.swift */,
+			);
+			path = TransactionsService;
+			sourceTree = "<group>";
+		};
+		7C4D0EE62E244134008F143D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EA32E21AA82008F143D /* CreditDebitIndicator.swift */,
+				7C4D0E7B2E2135D5008F143D /* Transaction.swift */,
+				7C4D0EA12E21A85B008F143D /* TransactionCategory.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

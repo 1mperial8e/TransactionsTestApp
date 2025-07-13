@@ -22,7 +22,7 @@ struct PaginationData {
     let size: Int
 }
 
-class DataStorageImpl<T: NSManagedObject>: DataStorage {
+final class DataStorageImpl<T: NSManagedObject>: DataStorage {
     typealias Entity = T
     var context: NSManagedObjectContext {
         return CoreDataContainer.appContainer.viewContext
