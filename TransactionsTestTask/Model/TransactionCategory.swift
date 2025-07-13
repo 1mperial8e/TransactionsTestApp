@@ -16,7 +16,7 @@ enum TransactionCategory: String, CaseIterable {
 }
 
 extension TransactionCategory {
-    var description: String {
+    var text: String {
         switch self {
         case .groceries: L10n.Transactions.Category.groceries
         case .taxi: L10n.Transactions.Category.taxi
@@ -28,7 +28,7 @@ extension TransactionCategory {
 
     var color: UIColor {
         switch self {
-        case .groceries: .systemGreen
+        case .groceries: .systemOrange
         case .taxi: .systemYellow
         case .electronics: .systemBlue
         case .restaurant: .systemPink

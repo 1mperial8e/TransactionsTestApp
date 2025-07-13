@@ -22,6 +22,7 @@ struct DashboardViewModelInput {
 struct DashboardViewModelOutput {
     var balance: AnyPublisher<Decimal, Never>
     var rate: AnyPublisher<Decimal?, Never>
+    var transactionsViewModel: AnyPublisher<any TransactionsListViewModel, Never>
 }
 
 final class DashboardViewModelImpl: DashboardViewModel {
@@ -31,8 +32,12 @@ final class DashboardViewModelImpl: DashboardViewModel {
     private let bitcoinRateService: BitcoinRateService
 
     private var wallet: Wallet
-    private let balancePublisher: CurrentValueSubject<Decimal, Never>
     private var cancellables: Set<AnyCancellable> = []
+
+    private lazy var transactionsListViewModel: any TransactionsListViewModel = {
+        let viewModel = TransactionsListViewModelImpl(transactionsService: transactionsService)
+        return viewModel
+    }()
 
     // MARK: Init
     init(
@@ -47,7 +52,6 @@ final class DashboardViewModelImpl: DashboardViewModel {
         self.bitcoinRateService = bitcoinRateService
         do {
             self.wallet = try walletService.getWallet()
-            self.balancePublisher = .init(wallet.balanceValue)
         } catch {
             fatalError("Wallet can not be initialized")
         }
@@ -65,11 +69,15 @@ final class DashboardViewModelImpl: DashboardViewModel {
     }
 
     private func handleRefillAmount(_ value: String) {
-        guard let amount = value.decimal, amount > 0 else { return }
+        guard let amount = value.decimal, amount > 0 else {
+            router.show(alert: InvalidAmountAlert.build() { [weak self] in
+                self?.handleRefillAction()
+            })
+            return
+        }
         do {
             try walletService.refillWallet(amount)
             try transactionsService.addDebitTransaction(amount: amount)
-            balancePublisher.send(wallet.balanceValue)
         } catch {
             router.show(alert: GenericErrorAlert.build())
         }
@@ -96,8 +104,9 @@ extension DashboardViewModelImpl {
             .store(in: &cancellables)
 
         return .init(
-            balance: balancePublisher.eraseToAnyPublisher(),
-            rate: bitcoinRateService.currentRatePublisher.eraseToAnyPublisher()
+            balance: walletService.balancePublisher.eraseToAnyPublisher(),
+            rate: bitcoinRateService.currentRatePublisher.eraseToAnyPublisher(),
+            transactionsViewModel: Just(transactionsListViewModel).eraseToAnyPublisher()
         )
     }
 }

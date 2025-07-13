@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 final class AddTransactionViewController: UIViewController {
-    private let viewModel: AddTransactionViewModel
+    private let viewModel: any AddTransactionViewModel
 
     private var amountSubject = PassthroughSubject<String?, Never>()
     private var categorySubject = PassthroughSubject<TransactionCategory, Never>()
@@ -19,7 +19,7 @@ final class AddTransactionViewController: UIViewController {
     @Published private var categories: [TransactionCategory] = []
 
     // MARK: - Init
-    init(viewModel: AddTransactionViewModel) {
+    init(viewModel: any AddTransactionViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,7 +36,6 @@ final class AddTransactionViewController: UIViewController {
         setupLayout()
         amountTextField.becomeFirstResponder()
         bindViewModel()
-        configureStyle()
     }
 
     // MARK: - Bindings
@@ -69,10 +68,12 @@ final class AddTransactionViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor)
         ])
-        stackView.addArrangedSubview(amountStackView)
-        stackView.addArrangedSubview(categoryTextField)
-        stackView.addArrangedSubview(referenceStackView)
+        stackView.addArrangedSubview(amountInput)
+        stackView.addArrangedSubview(categoryInput)
+        stackView.addArrangedSubview(referenceInput)
 
+        amountTextField.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
+        categoryTextField.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
         referenceTextView.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
     }
 
@@ -86,14 +87,6 @@ final class AddTransactionViewController: UIViewController {
         )
     }
 
-    private func configureStyle() {
-        stackView.subviews.enumerated().forEach { index, view in
-            if index % 2 == 0 {
-                view.backgroundColor = .lightGray.withAlphaComponent(0.3)
-            }
-        }
-    }
-
     // MARK: - UI Components
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -105,19 +98,10 @@ final class AddTransactionViewController: UIViewController {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = Spacer.md
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.layoutMargins = .init(top: 16, left: 16, bottom: view.safeAreaInsets.bottom, right: 16)
+        stackView.layoutMargins = .init(top: Spacer.md, left: Spacer.md, bottom: view.safeAreaInsets.bottom, right: Spacer.md)
         stackView.isLayoutMarginsRelativeArrangement = true
-        return stackView
-    }()
-
-    private lazy var amountStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 16
-        stackView.addArrangedSubview(amountTextField)
-        stackView.addArrangedSubview(btcLabel)
         return stackView
     }()
 
@@ -125,10 +109,12 @@ final class AddTransactionViewController: UIViewController {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .title2)
         textField.textColor = .label
-        textField.placeholder = 0.formatted()
         textField.keyboardType = .decimalPad
-        textField.textAlignment = .center
         textField.delegate = self
+        textField.rightViewMode = .always
+        textField.rightView = btcLabel
+        textField.layoutMargins = UIEdgeInsets(top: Spacer.xs, left: Spacer.md, bottom: Spacer.xs, right: Spacer.md)
+        DesignSystem.addBorder(textField)
         return textField
     }()
 
@@ -139,6 +125,10 @@ final class AddTransactionViewController: UIViewController {
         return label
     }()
 
+    private lazy var amountInput: InputView = {
+        .init(title: L10n.Transactions.AddTransaction.Amount.title, inputField: amountTextField)
+    }()
+
     private lazy var referenceTextView: UITextView = {
         let textView = UITextView()
         textView.font = .preferredFont(forTextStyle: .body)
@@ -146,24 +136,12 @@ final class AddTransactionViewController: UIViewController {
         textView.delegate = self
         textView.setContentHuggingPriority(.defaultLow, for: .vertical)
         textView.isScrollEnabled = false
-        textView.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        DesignSystem.addBorder(textView)
         return textView
     }()
 
-    private lazy var referenceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .body)
-        label.text = L10n.Transactions.Reference.placeholder
-        return label
-    }()
-
-    private lazy var referenceStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.addArrangedSubview(referenceLabel)
-        stackView.addArrangedSubview(referenceTextView)
-        return stackView
+    private lazy var referenceInput: InputView = {
+        .init(title: L10n.Transactions.AddTransaction.Reference.title, inputField: referenceTextView)
     }()
 
     private lazy var categoryPicker: UIPickerView = {
@@ -177,15 +155,13 @@ final class AddTransactionViewController: UIViewController {
     private lazy var categoryTextField: UITextField = {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .body)
-        textField.textColor = .label
         textField.inputView = categoryPicker
-        textField.leftViewMode = .always
-
-        let accessoryLabel = UILabel()
-        accessoryLabel.text = L10n.Transactions.selectCategory
-        accessoryLabel.font = .preferredFont(forTextStyle: .body)
-        textField.leftView = accessoryLabel
+        DesignSystem.addBorder(textField)
         return textField
+    }()
+
+    private lazy var categoryInput: InputView = {
+        .init(title: L10n.Transactions.AddTransaction.Category.title, inputField: categoryTextField)
     }()
 }
 
@@ -216,11 +192,11 @@ extension AddTransactionViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row].description
+        return categories[row].text
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categorySubject.send(categories[row])
-        categoryTextField.text = categories[row].description
+        categoryTextField.text = categories[row].text
     }
 }

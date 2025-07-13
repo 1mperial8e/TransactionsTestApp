@@ -80,6 +80,7 @@ final class AddTransactionViewModelImpl: AddTransactionViewModel {
                 return
             }
             try transactionService.addCreditTransaction(category: category, amount: amount, reference: transactionModel.reference)
+            try walletService.deduct(amount: amount)
             router.goBack()
         } catch {
             router.show(alert: GenericErrorAlert.build())

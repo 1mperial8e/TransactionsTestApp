@@ -48,6 +48,17 @@
 		7C4D0EAB2E225864008F143D /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EAA2E22585F008F143D /* CoreDataContainer.swift */; };
 		7C4D0EAD2E225FAC008F143D /* EmptyTransactionFieldsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EAC2E225F8C008F143D /* EmptyTransactionFieldsAlert.swift */; };
 		7C4D0EAF2E2260A1008F143D /* InsufficientBalanceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EAE2E22609F008F143D /* InsufficientBalanceAlert.swift */; };
+		7C4D0EB22E22F731008F143D /* TransactionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EB12E22F72C008F143D /* TransactionsListViewController.swift */; };
+		7C4D0EB42E22F73A008F143D /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EB32E22F737008F143D /* TransactionsListViewModel.swift */; };
+		7C4D0EB62E22FB43008F143D /* PaginatedDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EB52E22FB3F008F143D /* PaginatedDataProvider.swift */; };
+		7C4D0EB82E22FD9E008F143D /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EB72E22FD92008F143D /* TransactionTableViewCell.swift */; };
+		7C4D0EBB2E23AEC6008F143D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EBA2E23AEC1008F143D /* Date+Extension.swift */; };
+		7C4D0EBE2E23B25F008F143D /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EBD2E23B25A008F143D /* StateView.swift */; };
+		7C4D0EC12E23B3D5008F143D /* TransactionsEmptyStateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EC02E23B3BD008F143D /* TransactionsEmptyStateData.swift */; };
+		7C4D0EC72E23BA36008F143D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EC62E23BA34008F143D /* InputView.swift */; };
+		7C4D0EC92E23C4B8008F143D /* InvalidAmountAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0EC82E23C4B0008F143D /* InvalidAmountAlert.swift */; };
+		7C4D0ECC2E23CACB008F143D /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0ECB2E23CAC7008F143D /* DesignSystem.swift */; };
+		7C4D0ECE2E23CDB4008F143D /* DesignSystem+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D0ECD2E23CDAA008F143D /* DesignSystem+Styles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +124,17 @@
 		7C4D0EAA2E22585F008F143D /* CoreDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContainer.swift; sourceTree = "<group>"; };
 		7C4D0EAC2E225F8C008F143D /* EmptyTransactionFieldsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTransactionFieldsAlert.swift; sourceTree = "<group>"; };
 		7C4D0EAE2E22609F008F143D /* InsufficientBalanceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsufficientBalanceAlert.swift; sourceTree = "<group>"; };
+		7C4D0EB12E22F72C008F143D /* TransactionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewController.swift; sourceTree = "<group>"; };
+		7C4D0EB32E22F737008F143D /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
+		7C4D0EB52E22FB3F008F143D /* PaginatedDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedDataProvider.swift; sourceTree = "<group>"; };
+		7C4D0EB72E22FD92008F143D /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		7C4D0EBA2E23AEC1008F143D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7C4D0EBD2E23B25A008F143D /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		7C4D0EC02E23B3BD008F143D /* TransactionsEmptyStateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsEmptyStateData.swift; sourceTree = "<group>"; };
+		7C4D0EC62E23BA34008F143D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		7C4D0EC82E23C4B0008F143D /* InvalidAmountAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidAmountAlert.swift; sourceTree = "<group>"; };
+		7C4D0ECB2E23CAC7008F143D /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		7C4D0ECD2E23CDAA008F143D /* DesignSystem+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem+Styles.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,11 +174,11 @@
 		0DF1D13E2D22DC2D001626E7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7C4D0E7F2E21401E008F143D /* Storage */,
-				0DF1D13F2D22DC4B001626E7 /* ServicesAssembler.swift */,
-				7C4D0E982E216EE1008F143D /* BitcoinRateService */,
-				7C4D0E912E216E81008F143D /* Network */,
 				0D15405F2D22EF3400D6D63F /* AnalyticsService */,
+				7C4D0E982E216EE1008F143D /* BitcoinRateService */,
+				7C4D0E912E216E81008F143D /* NetworkClient */,
+				7C4D0E7F2E21401E008F143D /* StorageServices */,
+				0DF1D13F2D22DC4B001626E7 /* ServicesAssembler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -164,8 +186,10 @@
 		0DF1D1412D22DCC3001626E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7C4D0E4D2E20F577008F143D /* Extensions */,
 				0DF1D1422D22DCD2001626E7 /* PerformOnce.swift */,
 				7C4D0E892E216219008F143D /* DecimalFormatter.swift */,
+				7C4D0EB52E22FB3F008F143D /* PaginatedDataProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -192,15 +216,16 @@
 		1CA3B6542D22B0F500176711 /* TransactionsTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				7C4D0E622E213275008F143D /* Model */,
 				7C4D0E532E20F9E3008F143D /* Generated */,
 				1CA3B6552D22B0F500176711 /* AppDelegate.swift */,
 				1CA3B6572D22B0F500176711 /* SceneDelegate.swift */,
-				7C4D0E4D2E20F577008F143D /* Extensions */,
+				7C4D0ECA2E23CABF008F143D /* DesignSystem */,
 				0DF1D1412D22DCC3001626E7 /* Helpers */,
 				7C4D0E432E204C83008F143D /* Router */,
+				7C4D0E622E213275008F143D /* Model */,
 				0DF1D13E2D22DC2D001626E7 /* Services */,
 				7C4D0E3D2E203E90008F143D /* Views */,
+				7C4D0EC42E23BA0F008F143D /* UIComponents */,
 				7C4D0E3C2E203E55008F143D /* Resources */,
 				1CA3B6662D22B0F600176711 /* Info.plist */,
 				1CA3B65E2D22B0F500176711 /* TransactionsTestTask.xcdatamodeld */,
@@ -229,9 +254,9 @@
 		7C4D0E3D2E203E90008F143D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C4D0E842E214D85008F143D /* Alerts */,
 				7C4D0E482E205013008F143D /* AddTransaction */,
 				7C4D0E3E2E203E9E008F143D /* Dashboard */,
+				7C4D0EB02E22F714008F143D /* TransactionsList */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +294,7 @@
 			children = (
 				7C4D0E8B2E216228008F143D /* String+Extension.swift */,
 				7C4D0E8D2E216245008F143D /* Decimal+Extension.swift */,
+				7C4D0EBA2E23AEC1008F143D /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,7 +318,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7C4D0E7F2E21401E008F143D /* Storage */ = {
+		7C4D0E7F2E21401E008F143D /* StorageServices */ = {
 			isa = PBXGroup;
 			children = (
 				7C4D0EAA2E22585F008F143D /* CoreDataContainer.swift */,
@@ -300,7 +326,7 @@
 				7C4D0E9E2E21A7B2008F143D /* TransactionsService.swift */,
 				7C4D0E822E214181008F143D /* WalletService.swift */,
 			);
-			path = Storage;
+			path = StorageServices;
 			sourceTree = "<group>";
 		};
 		7C4D0E842E214D85008F143D /* Alerts */ = {
@@ -310,11 +336,12 @@
 				7C4D0EAC2E225F8C008F143D /* EmptyTransactionFieldsAlert.swift */,
 				7C4D0EAE2E22609F008F143D /* InsufficientBalanceAlert.swift */,
 				7C4D0E852E214D97008F143D /* RefillAlert.swift */,
+				7C4D0EC82E23C4B0008F143D /* InvalidAmountAlert.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
 		};
-		7C4D0E912E216E81008F143D /* Network */ = {
+		7C4D0E912E216E81008F143D /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
 				7C4D0E922E216E8F008F143D /* Endpoint.swift */,
@@ -322,7 +349,7 @@
 				7C4D0E8F2E216644008F143D /* NetworkClient.swift */,
 				7C4D0E962E216EBE008F143D /* NetworkError.swift */,
 			);
-			path = Network;
+			path = NetworkClient;
 			sourceTree = "<group>";
 		};
 		7C4D0E982E216EE1008F143D /* BitcoinRateService */ = {
@@ -349,6 +376,68 @@
 				7C4D0EA82E224E0C008F143D /* AddTransactionModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7C4D0EB02E22F714008F143D /* TransactionsList */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EBF2E23B3B8008F143D /* Model */,
+				7C4D0EB92E22FDAC008F143D /* TransactionCell */,
+				7C4D0EB12E22F72C008F143D /* TransactionsListViewController.swift */,
+				7C4D0EB32E22F737008F143D /* TransactionsListViewModel.swift */,
+			);
+			path = TransactionsList;
+			sourceTree = "<group>";
+		};
+		7C4D0EB92E22FDAC008F143D /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EB72E22FD92008F143D /* TransactionTableViewCell.swift */,
+			);
+			path = TransactionCell;
+			sourceTree = "<group>";
+		};
+		7C4D0EBC2E23B251008F143D /* StateView */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EBD2E23B25A008F143D /* StateView.swift */,
+			);
+			path = StateView;
+			sourceTree = "<group>";
+		};
+		7C4D0EBF2E23B3B8008F143D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EC02E23B3BD008F143D /* TransactionsEmptyStateData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C4D0EC42E23BA0F008F143D /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0E842E214D85008F143D /* Alerts */,
+				7C4D0EC52E23BA25008F143D /* InputView */,
+				7C4D0EBC2E23B251008F143D /* StateView */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		7C4D0EC52E23BA25008F143D /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0EC62E23BA34008F143D /* InputView.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		7C4D0ECA2E23CABF008F143D /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				7C4D0ECB2E23CAC7008F143D /* DesignSystem.swift */,
+				7C4D0ECD2E23CDAA008F143D /* DesignSystem+Styles.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C4D0EC12E23B3D5008F143D /* TransactionsEmptyStateData.swift in Sources */,
 				7C4D0EAB2E225864008F143D /* CoreDataContainer.swift in Sources */,
 				0D1540612D22EF5D00D6D63F /* AnalyticsEvent.swift in Sources */,
 				7C4D0E972E216EBF008F143D /* NetworkError.swift in Sources */,
@@ -492,27 +582,37 @@
 				0DF1D1432D22DCD8001626E7 /* PerformOnce.swift in Sources */,
 				7C4D0EA92E224E12008F143D /* AddTransactionModel.swift in Sources */,
 				7C4D0E4A2E20502E008F143D /* AddTransactionViewController.swift in Sources */,
+				7C4D0ECC2E23CACB008F143D /* DesignSystem.swift in Sources */,
+				7C4D0EC92E23C4B8008F143D /* InvalidAmountAlert.swift in Sources */,
+				7C4D0EC72E23BA36008F143D /* InputView.swift in Sources */,
 				7C4D0E902E216649008F143D /* NetworkClient.swift in Sources */,
+				7C4D0EBB2E23AEC6008F143D /* Date+Extension.swift in Sources */,
 				0DF1D1452D22DD06001626E7 /* BitcoinRateService.swift in Sources */,
 				0DF1D1472D22DD4A001626E7 /* AnalyticsService.swift in Sources */,
 				7C4D0EAD2E225FAC008F143D /* EmptyTransactionFieldsAlert.swift in Sources */,
 				7C4D0E8A2E21621A008F143D /* DecimalFormatter.swift in Sources */,
 				7C4D0E862E214D98008F143D /* RefillAlert.swift in Sources */,
+				7C4D0EB62E22FB43008F143D /* PaginatedDataProvider.swift in Sources */,
 				7C4D0E552E20FAEE008F143D /* Strings.swift in Sources */,
 				1CA3B65A2D22B0F500176711 /* DashboardViewController.swift in Sources */,
 				7C4D0E9F2E21A7B7008F143D /* TransactionsService.swift in Sources */,
 				7C4D0EA42E21AA88008F143D /* CreditDebitIndicator.swift in Sources */,
 				7C4D0E8C2E21622F008F143D /* String+Extension.swift in Sources */,
+				7C4D0EB82E22FD9E008F143D /* TransactionTableViewCell.swift in Sources */,
+				7C4D0EBE2E23B25F008F143D /* StateView.swift in Sources */,
 				7C4D0E882E2155E4008F143D /* GenericErrorAlert.swift in Sources */,
 				1CA3B6562D22B0F500176711 /* AppDelegate.swift in Sources */,
 				7C4D0E932E216E92008F143D /* Endpoint.swift in Sources */,
 				7C4D0E4C2E20503C008F143D /* AddTransactionViewModel.swift in Sources */,
+				7C4D0EB22E22F731008F143D /* TransactionsListViewController.swift in Sources */,
 				7C4D0E812E214038008F143D /* DataStorage.swift in Sources */,
 				7C4D0E8E2E21624A008F143D /* Decimal+Extension.swift in Sources */,
 				7C4D0E422E204C7E008F143D /* AppRouter.swift in Sources */,
+				7C4D0ECE2E23CDB4008F143D /* DesignSystem+Styles.swift in Sources */,
 				7C4D0E9A2E216EF8008F143D /* BitcoinEndpoint.swift in Sources */,
 				7C4D0EA22E21A863008F143D /* TransactionCategory.swift in Sources */,
 				1CA3B6582D22B0F500176711 /* SceneDelegate.swift in Sources */,
+				7C4D0EB42E22F73A008F143D /* TransactionsListViewModel.swift in Sources */,
 				1CA3B6602D22B0F500176711 /* TransactionsTestTask.xcdatamodeld in Sources */,
 				7C4D0E9D2E2174B8008F143D /* BitcoinRateResponse.swift in Sources */,
 				7C4D0E952E216EAA008F143D /* HTTPMethod.swift in Sources */,

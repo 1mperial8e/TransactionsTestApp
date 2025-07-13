@@ -54,6 +54,14 @@ internal enum L10n {
     internal static let message = L10n.tr("Localizable", "refillBalance.message", fallback: "Please enter an amount you would like to refill:")
     /// Refill your balance
     internal static let title = L10n.tr("Localizable", "refillBalance.title", fallback: "Refill your balance")
+    internal enum Error {
+      internal enum InvalidAmount {
+        /// Please enter valid amount.
+        internal static let message = L10n.tr("Localizable", "refillBalance.error.invalidAmount.message", fallback: "Please enter valid amount.")
+        /// Invalid amount
+        internal static let title = L10n.tr("Localizable", "refillBalance.error.invalidAmount.title", fallback: "Invalid amount")
+      }
+    }
   }
   internal enum Transactions {
     /// Select category:
@@ -61,6 +69,18 @@ internal enum L10n {
     internal enum AddTransaction {
       /// New transaction
       internal static let title = L10n.tr("Localizable", "transactions.addTransaction.title", fallback: "New transaction")
+      internal enum Amount {
+        /// Enter amount:
+        internal static let title = L10n.tr("Localizable", "transactions.addTransaction.amount.title", fallback: "Enter amount:")
+      }
+      internal enum Category {
+        /// Select category:
+        internal static let title = L10n.tr("Localizable", "transactions.addTransaction.category.title", fallback: "Select category:")
+      }
+      internal enum Reference {
+        /// Description (optional):
+        internal static let title = L10n.tr("Localizable", "transactions.addTransaction.reference.title", fallback: "Description (optional):")
+      }
     }
     internal enum Btc {
       /// BTC
@@ -80,8 +100,8 @@ internal enum L10n {
     }
     internal enum Error {
       internal enum EmptyFields {
-        /// Please enter amount and select category.
-        internal static let message = L10n.tr("Localizable", "transactions.error.emptyFields.message", fallback: "Please enter amount and select category.")
+        /// Please enter valid amount and select category.
+        internal static let message = L10n.tr("Localizable", "transactions.error.emptyFields.message", fallback: "Please enter valid amount and select category.")
         /// Fields required
         internal static let title = L10n.tr("Localizable", "transactions.error.emptyFields.title", fallback: "Fields required")
       }
@@ -92,9 +112,15 @@ internal enum L10n {
         internal static let title = L10n.tr("Localizable", "transactions.error.insufficientBalance.title", fallback: "Insufficient balance")
       }
     }
-    internal enum Reference {
-      /// Description
-      internal static let placeholder = L10n.tr("Localizable", "transactions.reference.placeholder", fallback: "Description")
+    internal enum List {
+      /// Deposit
+      internal static let deposit = L10n.tr("Localizable", "transactions.list.deposit", fallback: "Deposit")
+      internal enum Empty {
+        /// When you add your transactions they will be shown here.
+        internal static let subtitle = L10n.tr("Localizable", "transactions.list.empty.subtitle", fallback: "When you add your transactions they will be shown here.")
+        /// No transactions to show
+        internal static let title = L10n.tr("Localizable", "transactions.list.empty.title", fallback: "No transactions to show")
+      }
     }
   }
 }

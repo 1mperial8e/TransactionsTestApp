@@ -8,14 +8,14 @@ import UIKit
 import Combine
 
 class DashboardViewController: UIViewController {
-    private let viewModel: DashboardViewModel
+    private let viewModel: any DashboardViewModel
 
     private var onRefill = PassthroughSubject<Void, Never>()
     private var onAddTransaction = PassthroughSubject<Void, Never>()
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: Init
-    init(viewModel: DashboardViewModel) {
+    init(viewModel: any DashboardViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,6 +61,13 @@ class DashboardViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        output
+            .transactionsViewModel
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] viewModel in
+                self?.showTransactionsView(viewModel: viewModel)
+            }
+            .store(in: &cancellables)
     }
 
     // MARK: Layout
@@ -69,7 +76,7 @@ class DashboardViewController: UIViewController {
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         addTransactionButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         stackView.addArrangedSubview(balanceStackView)
@@ -80,13 +87,27 @@ class DashboardViewController: UIViewController {
         navigationItem.rightBarButtonItem = .init(customView: rateLabel)
     }
 
+    private func showTransactionsView(viewModel: any TransactionsListViewModel) {
+        let transactionsViewController = TransactionsListViewController(viewModel: viewModel)
+        transactionsViewController.loadViewIfNeeded()
+        addChild(transactionsViewController)
+        if let transactionsView = transactionsViewController.view {
+            transactionsView.translatesAutoresizingMaskIntoConstraints = false
+            transactionsView.setContentHuggingPriority(.defaultLow, for: .vertical)
+            transactionsView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+            stackView.addArrangedSubview(transactionsView)
+        }
+        self.transactionsViewController = transactionsViewController
+    }
+
     // MARK: - UI Components
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = Spacer.md
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.layoutMargins = .init(top: 16, left: 16, bottom: view.safeAreaInsets.bottom, right: 16)
+        stackView.layoutMargins = .init(top: Spacer.md, left: Spacer.md, bottom: view.safeAreaInsets.bottom, right: Spacer.md)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
@@ -94,7 +115,7 @@ class DashboardViewController: UIViewController {
     private lazy var balanceStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = Spacer.sm
         stackView.alignment = .center
         stackView.addArrangedSubview(balanceLabel)
         stackView.addArrangedSubview(refillButton)
@@ -131,4 +152,6 @@ class DashboardViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+
+    private var transactionsViewController: UIViewController?
 }

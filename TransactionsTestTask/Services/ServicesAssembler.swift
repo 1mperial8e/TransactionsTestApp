@@ -22,8 +22,8 @@ enum ServicesAssembler {
             walletService: Self.walletService(),
             analyticsService: Self.analyticsService()
         )
-        // Scheduling automatic rate updates every 5 seconds while app is active
-//        service.scheduleRateUpdate(interval: 5)
+        // Scheduling automatic rate updates every 2 min while app is active
+        service.scheduleRateUpdate(interval: 120)
 
         return { service }
     }()

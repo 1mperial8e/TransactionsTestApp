@@ -15,6 +15,9 @@
 
 // MARK: - Transactions
 "transactions.addTransaction.title" = "New transaction";
+"transactions.addTransaction.reference.title" = "Description (optional):";
+"transactions.addTransaction.amount.title" = "Enter amount:";
+"transactions.addTransaction.category.title" = "Select category:";
 "transactions.category.groceries" = "Groceries";
 "transactions.category.taxi" = "Taxi";
 "transactions.category.electronics" = "Electronics";
@@ -23,14 +26,18 @@
 "transactions.btc.code" = "BTC";
 "transactions.selectCategory" = "Select category:";
 "transactions.error.emptyFields.title" = "Fields required";
-"transactions.error.emptyFields.message" = "Please enter amount and select category.";
+"transactions.error.emptyFields.message" = "Please enter valid amount and select category.";
 "transactions.error.insufficientBalance.title" = "Insufficient balance";
 "transactions.error.insufficientBalance.message" = "Please refill your balance.";
-"transactions.reference.placeholder" = "Description";
+"transactions.list.deposit" = "Deposit";
+"transactions.list.empty.title" = "No transactions to show";
+"transactions.list.empty.subtitle" = "When you add your transactions they will be shown here.";
 
 // MARK: - Refill balance
 "refillBalance.title" = "Refill your balance";
 "refillBalance.message" = "Please enter an amount you would like to refill:";
+"refillBalance.error.invalidAmount.title" = "Invalid amount";
+"refillBalance.error.invalidAmount.message" = "Please enter valid amount.";
 
 // MARK: - Common
 "common.error.generic.title" = "Error";
